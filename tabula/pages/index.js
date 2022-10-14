@@ -6,10 +6,11 @@ import { Container, Divider } from "semantic-ui-react"
 import Footer from "../components/Footer.js"
 import Header from "../components/Header.js"
 import SampleTable from "../components/SampleTable.js"
+import SearchBar from "../components/SearchBar.js"
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="container">
       <Head>
         <title>Tabula Rasa - Next.js</title>
         <meta
@@ -22,18 +23,19 @@ export default function Home() {
         />
       </Head>
 
-      <Container>
+      <Container fluid>
         <header>
           <Header />
         </header>
 
-        <main className="">
-          <Container>
+        <div className="mx-auto">
+          <main className="container p-1 outline-dashed outline-2">
+            <SearchBar />
             <SampleTable />
-          </Container>
-        </main>
+          </main>
+        </div>
 
-        <footer className="">
+        <footer className="my-2 px-1 pb-1 outline-dashed outline-2">
           <Footer />
         </footer>
       </Container>
