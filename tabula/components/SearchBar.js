@@ -2,9 +2,9 @@ import { Container } from "semantic-ui-react"
 
 const SearchBar = (props) => {
   return (
-    <Container className="my-3 p-1 outline-dashed outline-2">
+    <div className="container m-3 p-2 outline-dashed outline-2">
       (SearchBar)
-    </Container>
+    </div>
   )
 }
 

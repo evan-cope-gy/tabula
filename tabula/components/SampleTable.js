@@ -1,4 +1,5 @@
 import { Container, Table, Icon } from "semantic-ui-react"
+import styles from "../styles/SampleTable.module.css"
 
 const SampleTable = () => {
   return (
@@ -11,7 +12,7 @@ const SampleTable = () => {
     >
       <Table.Header>
         <Table.Row>
-          <Table.HeaderCell>Name</Table.HeaderCell>
+          <Table.HeaderCell className="bg-gray-500">Name</Table.HeaderCell>
           <Table.HeaderCell>Status</Table.HeaderCell>
           <Table.HeaderCell>Notes</Table.HeaderCell>
         </Table.Row>
@@ -21,10 +22,10 @@ const SampleTable = () => {
         <Table.Row>
           <Table.Cell>No Name Specified</Table.Cell>
           <Table.Cell>Unknown</Table.Cell>
-          <Table.Cell negative>None</Table.Cell>
+          <Table.Cell className="bg-negative">Negative Event</Table.Cell>
         </Table.Row>
 
-        <Table.Row positive>
+        <Table.Row className="bg-positive">
           <Table.Cell>Jimmy</Table.Cell>
           <Table.Cell>
             <Icon name="checkmark" />
@@ -36,19 +37,19 @@ const SampleTable = () => {
         <Table.Row>
           <Table.Cell>Jamie</Table.Cell>
           <Table.Cell>Unknown</Table.Cell>
-          <Table.Cell positive>
+          <Table.Cell className="bg-warning">
             <Icon name="close" />
-            Requires call
+            Requires Call
           </Table.Cell>
         </Table.Row>
 
-        <Table.Row negative>
+        <Table.Row className="bg-negative">
           <Table.Cell>Jill</Table.Cell>
           <Table.Cell>Unknown</Table.Cell>
           <Table.Cell>None</Table.Cell>
         </Table.Row>
 
-        <Table.Row warning>
+        <Table.Row className="bg-warning">
           <Table.Cell>Jimmy</Table.Cell>
           <Table.Cell>
             <Icon name="attention" />
@@ -59,7 +60,7 @@ const SampleTable = () => {
         <Table.Row>
           <Table.Cell>Jamie</Table.Cell>
           <Table.Cell>Unknown</Table.Cell>
-          <Table.Cell warning>
+          <Table.Cell className="bg-warning">
             <Icon name="attention" />
             Hostile
           </Table.Cell>
@@ -67,7 +68,7 @@ const SampleTable = () => {
         <Table.Row disabled>
           <Table.Cell>Jamie</Table.Cell>
           <Table.Cell>Approved</Table.Cell>
-          <Table.Cell>Requires call</Table.Cell>
+          <Table.Cell>Disabled Contents</Table.Cell>
         </Table.Row>
       </Table.Body>
     </Table>
