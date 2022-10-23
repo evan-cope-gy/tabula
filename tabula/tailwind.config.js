@@ -6,9 +6,9 @@ module.exports = {
   ],
   theme: {
     colors: {
-      'negative': '#fecaca',
-      'positive': '#ecfccb',
-      'warning': '#fef9c3',
+      negative: "#fecaca",
+      positive: "#ecfccb",
+      warning: "#fef9c3",
     },
     extend: {},
   },

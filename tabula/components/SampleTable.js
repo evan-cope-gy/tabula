@@ -1,5 +1,4 @@
-import { Container, Table, Icon } from "semantic-ui-react"
-import styles from "../styles/SampleTable.module.css"
+// import styles from "../styles/SampleTable.module.css"
 
 const SampleTable = () => {
   return (

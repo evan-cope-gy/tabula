@@ -1,7 +1,7 @@
-import { Container, Table, Icon } from "semantic-ui-react"
+import { Table } from "rsuite"
 import streamingTitlesData from "../data/titles.json"
 
-const SampleTable = () => {
+const DataTable = () => {
   // List of header to include in the table:
   const tableHeaders = [
     "ShowID",
@@ -24,10 +24,11 @@ const SampleTable = () => {
 
   return (
     <Table
-      celled
-      // compact
-      compact="very"
-      padded
+      className=""
+      style={{ width: "100%" }}
+      loading={false}
+      bordered
+      cellBordered
     >
       <Table.Header>
         <Table.Row>
@@ -61,55 +62,10 @@ const SampleTable = () => {
           <Table.Cell>Unknown</Table.Cell>
           <Table.Cell negative>None</Table.Cell>
         </Table.Row>
-
-        <Table.Row positive>
-          <Table.Cell>Jimmy</Table.Cell>
-          <Table.Cell>
-            <Icon name="checkmark" />
-            Approved
-          </Table.Cell>
-          <Table.Cell>None</Table.Cell>
-        </Table.Row>
-
-        <Table.Row>
-          <Table.Cell>Jamie</Table.Cell>
-          <Table.Cell>Unknown</Table.Cell>
-          <Table.Cell positive>
-            <Icon name="close" />
-            Requires call
-          </Table.Cell>
-        </Table.Row>
-
-        <Table.Row negative>
-          <Table.Cell>Jill</Table.Cell>
-          <Table.Cell>Unknown</Table.Cell>
-          <Table.Cell>None</Table.Cell>
-        </Table.Row>
-
-        <Table.Row warning>
-          <Table.Cell>Jimmy</Table.Cell>
-          <Table.Cell>
-            <Icon name="attention" />
-            Requires Action
-          </Table.Cell>
-          <Table.Cell>None</Table.Cell>
-        </Table.Row>
-        <Table.Row>
-          <Table.Cell>Jamie</Table.Cell>
-          <Table.Cell>Unknown</Table.Cell>
-          <Table.Cell warning>
-            <Icon name="attention" />
-            Hostile
-          </Table.Cell>
-        </Table.Row>
-        <Table.Row disabled>
-          <Table.Cell>Jamie</Table.Cell>
-          <Table.Cell>Approved</Table.Cell>
-          <Table.Cell>Requires call</Table.Cell>
-        </Table.Row> */}
+        */}
       </Table.Body>
     </Table>
   )
 }
 
-export default SampleTable
+export default DataTable

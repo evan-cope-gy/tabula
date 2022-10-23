@@ -1,13 +1,10 @@
-import { Container, Divider } from "semantic-ui-react"
+import { Footer as RFooter } from "rsuite"
 
 const Footer = () => {
   return (
-    <>
-      <Divider></Divider>
-      <Container>
-        <span className="">[Test Footer]</span>
-      </Container>
-    </>
+    <RFooter>
+      <span className="text-sm">[Test Footer]</span>
+    </RFooter>
   )
 }
 

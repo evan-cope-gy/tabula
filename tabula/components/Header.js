@@ -1,10 +1,10 @@
-import { Container, Header as SemanticHeader } from "semantic-ui-react"
+import { Header as RHeader } from "rsuite"
 
 const Header = () => {
   return (
-    <Container className="my-3 p-1">
-      <SemanticHeader as="h1">Tabula Rasa</SemanticHeader>
-    </Container>
+    <RHeader className="">
+      <div className="text-3xl font-medium">Tabula Rasa</div>
+    </RHeader>
   )
 }
 
