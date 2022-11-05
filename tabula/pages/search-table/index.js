@@ -13,6 +13,7 @@ const SearchTablePage = () => {
   return (
     <MainLayout>
       <div className="">
+        <h1 className="font-bold text-center"> Search Table </h1>
         {/* <MyDataTable
           data={data}
           isLoading={false}

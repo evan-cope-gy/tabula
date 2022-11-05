@@ -3,76 +3,92 @@ import { Table } from "rsuite"
 const { Column, HeaderCell, Cell } = Table
 
 const DataTable = ({ data, isLoading, isError, ...props }) => {
-  // List of header to include in the table:
-  // const tableHeaders = [
-  //   "ShowID",
-  //   "Title",
-  //   "Type",
-  //   "Director",
-  //   "Cast",
-  //   "Country",
-  //   "Release Year",
-  //   "Date Added",
-  //   "Rating",
-  //   "Duration",
-  //   "Genres",
-  //   "Description",
-  //   "Platform",
-  // ]
-
   const handleRowClick = (rowData) => {
     console.log("Row clicked: ", { rowData })
   }
 
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
   if (isError) {
     return <div>Error!</div>
+  }
+  if (isLoading) {
+    return <div>Loading...</div>
   }
   return (
     <Table
       {...props}
       className=""
-      style={{ width: "100%" }}
       loading={isLoading}
       data={data}
       bordered
       cellBordered
       onRowClick={handleRowClick}
     >
-      <Column>
-        <HeaderCell>Show Id</HeaderCell>
-        <Cell dataKey="show_id" />
+      <Column
+        className="collapse"
+        width={0}
+      >
+        <HeaderCell className="font-bold">pk</HeaderCell>
+        <Cell
+          className=""
+          dataKey="pk"
+        />
       </Column>
 
-      <Column resizable>
-        <HeaderCell>Title</HeaderCell>
+      <Column flexGrow={4}>
+        <HeaderCell className="font-bold">Title</HeaderCell>
         <Cell dataKey="title" />
       </Column>
 
-      <Column>
-        <HeaderCell>Type</HeaderCell>
+      <Column flexGrow={1}>
+        <HeaderCell className="font-bold">Type</HeaderCell>
         <Cell dataKey="type" />
       </Column>
 
-      <Column>
-        <HeaderCell>Director</HeaderCell>
+      <Column flexGrow={2}>
+        <HeaderCell className="font-bold">Director</HeaderCell>
         <Cell dataKey="director" />
       </Column>
 
-      <Column>
-        <HeaderCell>Cast</HeaderCell>
-        <Cell dataKey="cast" />
-      </Column>
+      {/* <Column
+        flexGrow={3}
+      >
+        <HeaderCell className="font-bold">Cast</HeaderCell>
+        <Cell dataKey="cast"  />
+      </Column> */}
 
-      <Column>
-        <HeaderCell>Country</HeaderCell>
+      <Column
+        className="collapse"
+        width={0}
+      >
+        <HeaderCell className="font-bold">Country</HeaderCell>
         <Cell dataKey="country" />
       </Column>
 
+      <Column flexGrow={1}>
+        <HeaderCell className="font-bold">Release Year</HeaderCell>
+        <Cell dataKey="release_year" />
+      </Column>
+
+      <Column
+        className="collapse"
+        width={0}
+      >
+        <HeaderCell className="font-bold">Rating</HeaderCell>
+        <Cell dataKey="rating" />
+      </Column>
+
+      <Column flexGrow={2}>
+        <HeaderCell className="font-bold">Genres</HeaderCell>
+        <Cell dataKey="genres" />
+      </Column>
+
+      <Column flexGrow={1}>
+        <HeaderCell className="font-bold">Platform</HeaderCell>
+        <Cell dataKey="platform" />
+      </Column>
+
       <Column fixed="right">
-        <HeaderCell>...</HeaderCell>
+        <HeaderCell className="font-bold">...</HeaderCell>
         <Cell>
           {(rowData) => (
             <span>

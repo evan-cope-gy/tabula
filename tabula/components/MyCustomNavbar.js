@@ -1,8 +1,14 @@
 import { forwardRef, useEffect } from "react"
 import Link from "next/link"
 import { Navbar, Nav } from "rsuite"
+const { Item, Menu } = Nav
 import HomeIcon from "@rsuite/icons/legacy/Home"
+import ListIcon from "@rsuite/icons/List"
 import CogIcon from "@rsuite/icons/legacy/Cog"
+import TableIcon from "@rsuite/icons/Table"
+import ArrowDownIcon from "@rsuite/icons/ArrowDown"
+import SettingIcon from "@rsuite/icons/Setting"
+import cls from "classnames"
 
 const NavLink = forwardRef((props, ref) => {
   const { href, as, ...rest } = props
@@ -20,88 +26,98 @@ const NavLink = forwardRef((props, ref) => {
 })
 
 const CustomNavbar = ({ activeKey, onSelect, ...props }) => {
-  // // Debugging navbar activeKey state:
-  // useEffect(() => {
-  //   onSelect(activeKey)
-  //   console.log("Navbar mounted! Active key: ", activeKey)
-  // }, [activeKey])
-
   return (
-    <Navbar
+    <div
       {...props}
-      className="border-b-2 px-2 pt-1"
+      className="border-b-2 pt-1"
     >
-      <div className="text-3xl font-medium m-3">Tabula Rasa</div>
+      <div className={cls("text-2xl px-3 py-2", "navbar-title")}>
+        Tabula Rasa
+      </div>
+
       <Nav
         onSelect={onSelect}
         activeKey={activeKey}
+        className="h-10 rounded-md inline-flex px-2"
       >
-        <Nav.Item
+        <Item
           as={NavLink}
-          className=""
+          className="h-10 rounded-md"
           eventKey="home"
           href="/"
           icon={<HomeIcon />}
         >
+          {" "}
           Home
-        </Nav.Item>
-        <Nav.Item
+        </Item>
+
+        <Item
           as={NavLink}
-          className=""
+          className="h-10 rounded-md"
           eventKey="list-table"
           href="/list-table"
+          icon={<ListIcon />}
         >
+          {" "}
           ListTable
-        </Nav.Item>
-        <Nav.Item
+        </Item>
+
+        <Item
           as={NavLink}
-          className=""
+          className="h-10 rounded-md "
           eventKey="search-table"
           href="/search-table"
+          icon={<TableIcon />}
         >
+          {" "}
           SearchTable
-        </Nav.Item>
+        </Item>
 
-        <Nav.Menu title="More...">
-          <Nav.Item
+        <Menu
+          className="rounded-md"
+          title="Utilities"
+          icon={<CogIcon />}
+          // noCaret
+        >
+          <Item
             as={NavLink}
             className=""
             eventKey="company"
             href="/company"
           >
-            Company
-          </Nav.Item>
-          <Nav.Item
+            Convert a Thing
+          </Item>
+
+          <Item
             as={NavLink}
             className=""
             eventKey="team"
             href="/team"
           >
-            Team
-          </Nav.Item>
-          <Nav.Item
+            Build a Thing
+          </Item>
+
+          <Item
             as={NavLink}
             className=""
             eventKey="contact"
             href="/contact"
           >
-            Contact
-          </Nav.Item>
-        </Nav.Menu>
-      </Nav>
+            Edit a Thing
+          </Item>
+        </Menu>
 
-      <Nav pullRight>
-        <Nav.Item
+        <Item
           as={NavLink}
-          className=""
-          icon={<CogIcon />}
+          className="h-10 rounded-md"
+          icon={<SettingIcon />}
           eventKey="settings"
           href="/settings"
         >
           Settings
-        </Nav.Item>
+        </Item>
       </Nav>
-    </Navbar>
+    </div>
   )
 }
 
