@@ -8,18 +8,16 @@ const ListTablePage = () => {
   // Streaming-Titles API request:
   const { data, isLoading, isError } = useStreamingTitlesAPI("/api/v1/titles")
 
-  // const tableData = streamingTitlesData.titles.slice(0, 10)
   console.log({ data, isLoading, isError })
+
   return (
     <MainLayout>
-      <div className="">
-        <MyDataTable
-          data={data}
-          isLoading={false}
-          isError={false}
-          autoHeight={true}
-        />
-      </div>
+      <MyDataTable
+        data={data}
+        isLoading={isLoading}
+        isError={isError}
+        // fillHeight
+      />
     </MainLayout>
   )
 }

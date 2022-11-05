@@ -1,31 +1,35 @@
-import { Col, Table } from "rsuite"
+import { Table } from "rsuite"
 
 const { Column, HeaderCell, Cell } = Table
 
 const DataTable = ({ data, isLoading, isError, ...props }) => {
   // List of header to include in the table:
-  const tableHeaders = [
-    "ShowID",
-    "Title",
-    "Type",
-    "Director",
-    "Cast",
-    "Country",
-    "Release Year",
-    "Date Added",
-    "Rating",
-    "Duration",
-    "Genres",
-    "Description",
-    "Platform",
-  ]
+  // const tableHeaders = [
+  //   "ShowID",
+  //   "Title",
+  //   "Type",
+  //   "Director",
+  //   "Cast",
+  //   "Country",
+  //   "Release Year",
+  //   "Date Added",
+  //   "Rating",
+  //   "Duration",
+  //   "Genres",
+  //   "Description",
+  //   "Platform",
+  // ]
 
   const handleRowClick = (rowData) => {
     console.log("Row clicked: ", { rowData })
   }
 
-  // if (isLoading) return <div>Loading...</div>
-  if (isError) return <div>Error!</div>
+  if (isLoading) {
+    return <div>Loading...</div>
+  }
+  if (isError) {
+    return <div>Error!</div>
+  }
   return (
     <Table
       {...props}
@@ -72,7 +76,7 @@ const DataTable = ({ data, isLoading, isError, ...props }) => {
         <Cell>
           {(rowData) => (
             <span>
-              <a onClick={() => alert(`id:${rowData.id}`)}> Edit </a>
+              <a onClick={() => alert(`id:${rowData.show_id}`)}> Edit </a>
             </span>
           )}
         </Cell>

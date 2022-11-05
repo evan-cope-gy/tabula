@@ -1,12 +1,12 @@
 import { useState } from "react"
 import Head from "next/head"
-import { Content, Header, Footer } from "rsuite"
+import { Container, Content, Header, Footer } from "rsuite"
 import CustomNavbar from "../components/MyCustomNavbar"
 import MyFooter from "../components/MyFooter"
 
 const MainLayout = ({ children }) => {
   // Navbar active key:
-  const [activeKey, setActiveKey] = useState("home")
+  const [activeKey, setActiveKey] = useState(null)
 
   return (
     <div>
@@ -25,11 +25,13 @@ const MainLayout = ({ children }) => {
         />
       </Header>
 
-      <Content className="p-4">{children}</Content>
+      <Container className="">
+        <Content className="p-4">{children}</Content>
 
-      <Footer>
-        <MyFooter />
-      </Footer>
+        <Footer className="mt-2 mb-1 mx-auto">
+          <MyFooter />
+        </Footer>
+      </Container>
     </div>
   )
 }

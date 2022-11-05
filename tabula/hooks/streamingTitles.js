@@ -1,18 +1,18 @@
-import axios from "axios"
+// import axios from "axios"
 import useSWR from "swr"
 
-const axiosInstance = axios.create({
-  baseURL: "https://streaming-titles-api.up.railway.app",
-  timeout: 10000,
-  headers: {
-    access_token: "whattodowhenlifegivesyoulemons",
-  },
-})
+const options = {
+  mode: "no-cors",
+}
 
-const fetcher = (url) => axiosInstance.get(url).then((res) => res.data)
+const fetcher = async (url) => {
+  const res = await fetch(url, options)
+  return res.json()
+}
 
-function useStreamingTitlesAPI(relativeUrl) {
-  const { data, error } = useSWR(relativeUrl, fetcher)
+function useTitlesAPI(url) {
+  const { data, error } = useSWR(url, fetcher)
+  // console.log({ data, error })
   return {
     data: data,
     isLoading: !error && !data,
@@ -20,4 +20,4 @@ function useStreamingTitlesAPI(relativeUrl) {
   }
 }
 
-export default useStreamingTitlesAPI
+export default useTitlesAPI

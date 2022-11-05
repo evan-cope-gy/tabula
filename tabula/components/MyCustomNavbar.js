@@ -4,26 +4,27 @@ import { Navbar, Nav } from "rsuite"
 import HomeIcon from "@rsuite/icons/legacy/Home"
 import CogIcon from "@rsuite/icons/legacy/Cog"
 
-const CustomNavbar = ({ onSelect, activeKey, ...props }) => {
-  const NavLink = forwardRef((props, ref) => {
-    const { href, as, ...rest } = props
-    return (
-      <Link
-        href={href}
-        as={as}
-      >
-        <a
-          ref={ref}
-          {...rest}
-        />
-      </Link>
-    )
-  })
+const NavLink = forwardRef((props, ref) => {
+  const { href, as, ...rest } = props
+  return (
+    <Link
+      href={href}
+      as={as}
+    >
+      <a
+        ref={ref}
+        {...rest}
+      />
+    </Link>
+  )
+})
 
-  // Debugging navbar activeKey state:
-  useEffect(() => {
-    console.log("Navbar mounted! Active key: ", activeKey)
-  }, [activeKey, onSelect])
+const CustomNavbar = ({ activeKey, onSelect, ...props }) => {
+  // // Debugging navbar activeKey state:
+  // useEffect(() => {
+  //   onSelect(activeKey)
+  //   console.log("Navbar mounted! Active key: ", activeKey)
+  // }, [activeKey])
 
   return (
     <Navbar
@@ -58,7 +59,7 @@ const CustomNavbar = ({ onSelect, activeKey, ...props }) => {
           eventKey="search-table"
           href="/search-table"
         >
-          SearchableTable
+          SearchTable
         </Nav.Item>
 
         <Nav.Menu title="More...">
