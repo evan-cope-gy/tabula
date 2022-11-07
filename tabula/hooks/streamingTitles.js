@@ -2,7 +2,7 @@
 import useSWR from "swr"
 
 const options = {
-  mode: "no-cors",
+  // mode: "no-cors",
 }
 
 const fetcher = async (url) => {
