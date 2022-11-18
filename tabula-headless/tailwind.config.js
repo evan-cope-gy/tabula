@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -6,11 +7,14 @@ module.exports = {
     "./layouts/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    colors: {
-      negative: "#fecaca",
-      positive: "#ecfccb",
-      warning: "#fef9c3",
+    container: {
+      center: true,
     },
+    // colors: {
+    //   negative: "#fecaca",
+    //   positive: "#ecfccb",
+    //   warning: "#fef9c3",
+    // },
     extend: {},
   },
   plugins: [],

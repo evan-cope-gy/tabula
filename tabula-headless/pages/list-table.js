@@ -6,8 +6,7 @@ import MainLayout from "../../layouts/MainLayout"
 
 const ListTablePage = () => {
   // Streaming-Titles API request:
-  const { data, isLoading, isError } = useTitlesAPI("/api/titles")
-
+  // const { data, isLoading, isError } = useTitlesAPI("/api/titles")
   // console.log({ data, isLoading, isError })
 
   return (

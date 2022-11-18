@@ -1,5 +1,6 @@
 import Link from "next/link"
 
+
 const MyFooter = () => {
   return (
     <footer className="mx-3 mb-1 px-2 py-2 bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:p-4 dark:bg-gray-800">
@@ -14,11 +15,6 @@ const MyFooter = () => {
         <li>
           <Link href="#">
             <a className="mr-4 hover:underline md:mr-6 ">About</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="#">
-            <a className="mr-4 hover:underline md:mr-6">Privacy Policy</a>
           </Link>
         </li>
         <li>

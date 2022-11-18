@@ -1,10 +1,10 @@
-import MainLayout from "../layouts/MainLayout"
+// import MainLayout from "../layouts/MainLayout"
 
 const ContactPage = () => {
   return (
-    <MainLayout>
+    <div>
       <h1 className="font-bold text-center"> Contact Page </h1>
-    </MainLayout>
+    </div>
   )
 }
 
