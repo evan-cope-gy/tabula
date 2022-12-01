@@ -21,7 +21,7 @@ const Custom404NotFound = () => {
           {") {"}
         </span>
         <span className="block">
-          <span className="pl-15px text-sky-500 pl-5">{"    throw"}</span>
+          <span className="pl-15px text-sky-500 pl-5">{"throw"}</span>
           <span>
             {"("}
             <span className="text-lime-500">"(╯°□°)╯︵ ┻━┻"</span>
@@ -43,6 +43,7 @@ const Custom404NotFound = () => {
   )
 }
 
+Custom404NotFound.pageTitle = "Tabula Rasa: 404 Error!"
 Custom404NotFound.getLayout = getLayout
 
 export default Custom404NotFound

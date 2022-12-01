@@ -1,5 +1,9 @@
+/*
+  The Main Layout used for displaying most pages on the site.
+*/
+
 // import { useState } from "react"
-import MyFooter from "../components/MyFooter"
+import Footer from "../components/MyFooter"
 
 const MainLayout = ({ children }) => {
   // Navbar active key:
@@ -14,10 +18,12 @@ const MainLayout = ({ children }) => {
       </main>
 
       <footer className="container">
-        <MyFooter />
+        <Footer />
       </footer>
     </div>
   )
 }
+
+export const getLayout = (page) => <MainLayout>{page}</MainLayout>
 
 export default MainLayout

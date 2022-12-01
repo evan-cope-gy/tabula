@@ -1,13 +1,16 @@
-import styles from '../styles/Home.module.css'
+import { getLayout } from "../layouts/MainLayout"
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="">
       <main className="">
-        <h1 className="">
-          Hello
-        </h1>
+        <h1 className="">Hello</h1>
       </main>
     </div>
   )
 }
+
+Home.pageTitle = "Tabula Rasa: Home"
+Home.getLayout = getLayout
+
+export default Home

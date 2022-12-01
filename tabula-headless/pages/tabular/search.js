@@ -1,25 +1,26 @@
 import { useState } from "react"
 import useTitlesAPI from "../../hooks/streamingTitles"
 import MyDataTable from "../../components/MyDataTable"
-// import streamingTitlesData from "../../data/titles.json"
-import MainLayout from "../../layouts/MainLayout"
+import { getLayout } from "../../layouts/MainLayout"
 
-const ListTablePage = () => {
+const SearchTablePage = () => {
   // Streaming-Titles API request:
   // const { data, isLoading, isError } = useTitlesAPI("/api/titles")
   // console.log({ data, isLoading, isError })
 
   return (
-    <MainLayout>
+    <div>
       <MyDataTable
-        autoHeight
         data={data?.titles}
         isLoading={isLoading}
         isError={isError}
         className=""
       />
-    </MainLayout>
+    </div>
   )
 }
 
-export default ListTablePage
+SearchTablePage.pageTitle = "Tabula Rasa: Search"
+SearchTablePage.getLayout = getLayout
+
+export default SearchTablePage

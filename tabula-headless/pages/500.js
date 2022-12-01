@@ -21,7 +21,7 @@ const Custom500NotFound = () => {
           <span className="text-green-600 italic">{""}</span>
         </span>
         <span className="block">
-          <span className="pl-15px text-sky-500 pl-5">{"    throw"}</span>
+          <span className="pl-15px text-amber-600 pl-5">{"setAngryFace"}</span>
           <span>
             {"("}
             <span className="text-lime-500">"ლ(ಠ益ಠლ)"</span>
@@ -43,6 +43,7 @@ const Custom500NotFound = () => {
   )
 }
 
+Custom500NotFound.pageTitle = "Tabula Rasa: 500 Error!"
 Custom500NotFound.getLayout = getLayout
 
 export default Custom500NotFound

@@ -1,9 +1,8 @@
-// import { useState } from "react"
+/*
+  General Layout for basic pages.
+*/
 
 const BasicLayout = ({ children }) => {
-  // Navbar active key:
-  //   const [activeKey, setActiveKey] = useState(null)
-
   return (
     <div className="flex flex-col min-h-screen">
       <main className="flex-1">{children}</main>

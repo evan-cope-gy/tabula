@@ -5,10 +5,13 @@ function MyApp({ Component, pageProps }) {
   // Use the layout defined at the page level, if available:
   const getLayout = Component.getLayout || ((page) => page)
 
+  // Variable for page title:
+  const pageTitle = Component.pageTitle || "Tabula Rasa"
+
   return (
     <div>
       <Head>
-        <title>Tabula Rasa: HeadlessUI Edition</title>
+        <title>{pageTitle}</title>
         <link
           rel="icon"
           href="/favicon.ico"
