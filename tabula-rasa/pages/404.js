@@ -11,7 +11,7 @@ const Custom404NotFound = () => {
       <div className="container h-16"></div>
       <div className="container w-96 p-4 mt-4">
         <span className="block text-gray-400 italic">
-          // 404 page not found:
+          // Handle page not found:
         </span>
         <span className="block">
           <span className="text-rose-600">if </span>

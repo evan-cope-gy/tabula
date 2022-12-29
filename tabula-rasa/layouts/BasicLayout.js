@@ -1,5 +1,5 @@
 /*
-  General Layout for basic pages.
+  General container layout for basic pages.
 */
 
 const BasicLayout = ({ children }) => {

@@ -14,7 +14,7 @@ function useTitlesAPI(url) {
   // console.log({ data, error })
   return {
     data: data,
-    isLoading: !error && !data,
+    isLoading: !data && !error,
     isError: error,
   }
 }
