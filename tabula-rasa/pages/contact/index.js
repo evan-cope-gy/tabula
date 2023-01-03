@@ -3,8 +3,10 @@ import { getLayout } from "../../layouts/MainLayout"
 
 const ContactPage = () => {
   return (
-    <div>
-      <h1 className="font-semibold text-center text-3xl"> Contact Page </h1>
+    <div className="p-2">
+      <h1 className="font-medium text-3xl my-2 mx-2">
+        Contact Page
+      </h1>
     </div>
   )
 }

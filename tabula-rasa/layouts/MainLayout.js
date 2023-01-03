@@ -3,17 +3,17 @@
 */
 import { useState } from "react"
 import Footer from "../components/MyFooter"
-import HeaderNavbar from "../components/MyNavbar"
+import HeaderNavbar from "../components/MyHeaderNavbar"
 
 const MainLayout = ({ children }) => {
   // Navbar active key:
   const [navbarActiveKey, setNavbarActiveKey] = useState(null)
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-200">
+    <div className="min-h-screen flex flex-col bg-zinc-100">
       <header
-        aria-label="Site Header"
-        className=""
+        aria-label="Dashboard Home"
+        className="bg-zinc-200 shadow-lg"
       >
         <HeaderNavbar
           activeKey={navbarActiveKey}
@@ -27,7 +27,8 @@ const MainLayout = ({ children }) => {
 
       <footer
         aria-label="Site Footer"
-        className=""
+        className="bg-slate-500"
+        // className="bg-slate-500 border-t border-solid border-zinc-600"
       >
         <Footer />
       </footer>
