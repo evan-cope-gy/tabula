@@ -1,13 +1,13 @@
 import Link from "next/link"
 import Image from "next/image"
 import DropdownMenu from "./MyDropdownMenu"
-// import cls from "classnames"
+import cls from "classnames"
 
 
 const HeaderNavbar = () => {
 
   const directLinks = [
-    { label: "About", href: "/" },
+    { label: "Monitor", href: "/" },
     { label: "History", href: "/" },
     { label: "Services", href: "/" },
     { label: "Projects", href: "/" },
@@ -16,7 +16,7 @@ const HeaderNavbar = () => {
 
 
   return (
-    <div className="mx-auto flex h-20 items-center gap-8 px-4 sm:px-6 lg:px-8">
+    <div className="mx-auto flex h-18 items-center gap-8 divide-x-2 divide-double divide-neutral-400/70 px-4 sm:px-6 lg:px-8">
       <Link
         className="inline "
         href="/"
@@ -29,23 +29,26 @@ const HeaderNavbar = () => {
           height={50}
           alt="Dashboard Logo"
         />
-        <div className="inline-block mt-3">
+        <div className="inline-block pt-3">
           <span className="font-medium text-2xl text-cyan-800">
             Tabula Rasa
           </span>
         </div>
       </Link>
 
-      <div className="flex flex-1 items-center justify-end ml-3 md:justify-between ">
+      <div className="flex flex-1 items-center justify-end ml-3 md:justify-between">
         <nav
           aria-label="Site Navigation"
-          className="hidden md:block"
+          className="md:block"
         >
-          <ul className="flex items-center gap-6 text-sm text-stone-700">
-            { directLinks.map(link => (
-              <li>
+          <ul className="flex items-center ml-4 gap-6 text-sm  font-medium text-stone-700">
+            { directLinks.map((link, linkIndex) => (
+              <li key={ linkIndex }>
                 <Link
-                  className="font-medium transition rounded p-2 hover:text-sky-400 hover:ring-sky-400 hover:ring-1"
+                  className={cls(
+                    "transition rounded p-2",
+                    "hover:ring-1 hover:ring-sky-400 hover:text-sky-400"
+                  )}
                   href={link.href}
                 >
                   {link.label}
@@ -57,9 +60,9 @@ const HeaderNavbar = () => {
               <DropdownMenu
                 title="Examples"
                 links={[
-                  { label: "Static Table View", href: "/tabular" },
-                  { label: "Table with Search", href: "/tabular/search" },
-                  { label: "Team", href: "/team" },
+                  { label: "Static Table View", href: "/tables" },
+                  { label: "Table with Search", href: "/tabular/searchable" },
+                  { label: "Kitchen Sink", href: "/kitchen-sink-demo" },
                   { label: "Coming Soon!", href: "/", disabled: true}
                 ]}
               />
@@ -69,15 +72,8 @@ const HeaderNavbar = () => {
 
         <div className="flex items-center gap-4">
           <div className="sm:flex sm:gap-4">
-            {/* <Link
-              className="block rounded-md bg-teal-400 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
-              href="/"
-            >
-              Button A
-            </Link> */}
-
             <Link
-              className="rounded-lg p-2 text-stone-600 border border-solid border-stone-600 text-sm font-medium hover:text-white hover:border hover:bg-stone-600 transition sm:block"
+              className="rounded-lg p-2 antialiased text-gray-600 border-2 border-solid border-gray-600 text-sm font-medium hover:text-white hover:border-2 hover:bg-gray-600 transition sm:block"
               href="/settings"
               alt="Settings"
             >
@@ -86,24 +82,6 @@ const HeaderNavbar = () => {
               </svg>
             </Link>
           </div>
-
-          <button className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
-            <span className="sr-only">Toggle menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
         </div>
       </div>
     </div>

@@ -2,21 +2,21 @@ import Link from "next/link"
 
 const Footer = () => {
   return (
-    <div className="text-white mx-3 mb-0 px-2 sm:min-w-max md:flex md:items-center md:justify-between md:p-2 lg:px-6">
-      <span className="text-xs font-medium sm:text-center">
+    <div className="text-white text-xs font-medium antialiased mx-3 mb-0 px-2 sm:min-w-max md:flex md:items-center md:justify-between md:p-2 lg:px-6">
+      <span className="sm:text-center">
         © { `${new Date().getFullYear()}, ` }
         <Link
-          className="hover:text-sky-400"
+          className="hover:text-cyan-400"
           href="https://github.com/copev313"
         >
           Hashy Codes
         </Link>
         .
       </span>
-      <ul className="flex flex-nowrap items-center mt-3 text-xs text-white font-medium sm:mt-1">
+      <ul className="flex flex-nowrap items-center mt-3 sm:mt-1">
         <li>
           <Link
-            className="mr-4 hover:text-sky-400 md:mr-6"
+            className="mr-4 hover:text-cyan-400 md:mr-6"
             href="/team"
           >
             Team
@@ -24,7 +24,7 @@ const Footer = () => {
         </li>
         <li>
           <Link
-            className="mr-4 hover:text-sky-400 md:mr-6"
+            className="mr-4 hover:text-cyan-400 md:mr-6"
             href="https://github.com/copev313"
           >
             GitHub
@@ -32,7 +32,7 @@ const Footer = () => {
         </li>
         <li>
           <Link
-            className="hover:text-sky-400"
+            className="hover:text-cyan-400"
             href="/contact"
           >
             Contact

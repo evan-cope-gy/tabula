@@ -5,7 +5,7 @@ import cls from "classnames"
 const DropdownMenu = ({ title, links }) => {
     return (
       <Menu>
-        <Menu.Button className="inline-block text-stone-700 font-medium transition rounded p-2 hover:text-sky-400 hover:ring-sky-400 hover:ring-1">
+        <Menu.Button className="inline-block text-stone-700 transition rounded p-2 hover:text-sky-400 hover:ring-sky-400 hover:ring-1">
           {title}
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -33,9 +33,9 @@ const DropdownMenu = ({ title, links }) => {
                 <Link
                   href={link.href}
                   className={cls(
-                    "block px-4 py-2 text-sm font-medium transition rounded",
+                    "block px-4 py-2 font-medium transition rounded",
                     `${
-                      active ? "bg-sky-400 text-white" : "bg-white text-zinc-600"
+                      active ? "bg-sky-400/70 text-white" : "bg-white text-zinc-600"
                     }`,
                     `${link?.disabled ? "opacity-75" : ""}`
                   )}

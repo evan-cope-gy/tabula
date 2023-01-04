@@ -1,76 +1,80 @@
-import { useState } from "react"
+// import { useState } from "react"
 import useTitlesAPI from "../../hooks/streamingTitles"
 import BasicDataTable from "../../components/MyBasicTable"
 import { getLayout } from "../../layouts/MainLayout"
+import Spinner from "../../components/MySpinner"
+import ErrorAlertCard from "../../components/MyErrorAlertCard"
 
 const BasicTablePage = () => {
   // Streaming-Titles API request:
-  const { data, isLoading, isError } = useTitlesAPI("/api/titles")
+  const { data, isLoading, isError } = useTitlesAPI("/api/titles/?limit=20")
+  // DEBUGGING...
   console.log({ data, isLoading, isError })
 
-  const streamingTitleColumns = [
+  const columns = [
     {
-      header: "Show ID",
-      accessorKey: "show_id",
+      name: "Show ID",
+      selector: row => row.show_id,
     },
     {
-      header: "Title",
-      accessorKey: "title",
+      name: "Title",
+      selector: row => row.title,
+      grow: 3,
     },
     {
-      header: "Type",
-      accessorKey: "type",
+      name: "Type",
+      selector: row => row.type,
     },
     {
-      header: "Description",
-      accessorKey: "description",
+      name: "Description",
+      selector: row => row.description,
+      wrap: true,
+      grow: 6,
     },
     {
-      header: "Country",
-      accessorKey: "country",
+      name: "Country",
+      selector: row => row.country,
     },
     {
-      header: "Release Year",
-      accessorKey: "release_year",
+      name: "Release Year",
+      selector: row => row.release_year,
     },
     {
-      header: "Rating",
-      accessorKey: "rating",
+      name: "Rating",
+      selector: row => row.rating,
     },
     {
-      header: "Duration",
-      accessorKey: "duration",
+      name: "Duration",
+      selector: row => row.duration,
     },
     {
-      header: "Platform",
-      accessorKey: "platform",
-    },
-    {
-      header: "Type",
-      accessorKey: "type",
+      name: "Platform",
+      selector: row => row.platform,
     },
   ]
 
   return (
-    <div>
-      <h1 className="font-medium text-2xl underline my-2 mx-2">
+    <div className="text-black">
+      <h1 className="text-2xl font-medium my-2 pt-2 pb-3 mx-2">
         Basic Data Table
       </h1>
 
       {/* Handle Error State */}
-      { isError && (<div className="container">Error!</div>) }
+      <ErrorAlertCard error={isError} />
 
       {/* Handle Loading State */}
-      { isLoading && (<div className="container">Loading...</div>) }
+      <Spinner loading={isLoading} />
 
-      <div className="">
+      {/* Handle Loaded Table State */}
+      {(data && !isLoading && !isError) && (
+        <div className="mx-3">
           <BasicDataTable
-          columns={streamingTitleColumns}
-          data={data?.titles}
-          striped
-          className=""
-        />
-      </div>
+            columns={columns}
+            data={data?.titles}
+            className=""
+          />
+        </div>
+      )}
     </div>
   )
 }

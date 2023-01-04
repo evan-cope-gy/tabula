@@ -5,15 +5,19 @@ import { getLayout } from "../../layouts/MainLayout"
 
 const SearchTablePage = () => {
   // Streaming-Titles API request:
-  // const { data, isLoading, isError } = useTitlesAPI("/api/titles")
+  const { data, isLoading, isError } = useTitlesAPI("/api/titles")
+  // DEBUGGING...
   // console.log({ data, isLoading, isError })
+
+  const columns = [
+    {}
+  ]
 
   return (
     <div>
       <MyDataTable
         data={data?.titles}
-        isLoading={isLoading}
-        isError={isError}
+        columns={columns}
         className=""
       />
     </div>

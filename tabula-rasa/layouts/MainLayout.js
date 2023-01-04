@@ -10,10 +10,10 @@ const MainLayout = ({ children }) => {
   const [navbarActiveKey, setNavbarActiveKey] = useState(null)
 
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-100">
+    <div className="min-h-screen flex flex-col bg-zinc-100/70">
       <header
         aria-label="Dashboard Home"
-        className="bg-zinc-200 shadow-lg"
+        className="bg-zinc-300 border border-b-2 border-zinc-400/80"
       >
         <HeaderNavbar
           activeKey={navbarActiveKey}
@@ -22,13 +22,12 @@ const MainLayout = ({ children }) => {
       </header>
 
       <main className="flex-1">
-        <div className="px-3 py-2">{children}</div>
+        <div className="px-4 pt-1 pb-3">{children}</div>
       </main>
 
       <footer
         aria-label="Site Footer"
-        className="bg-slate-500"
-        // className="bg-slate-500 border-t border-solid border-zinc-600"
+        className="bg-slate-600"
       >
         <Footer />
       </footer>
