@@ -9,9 +9,7 @@ const SearchTablePage = () => {
   // DEBUGGING...
   // console.log({ data, isLoading, isError })
 
-  const columns = [
-    {}
-  ]
+  const columns = [{}]
 
   return (
     <div>

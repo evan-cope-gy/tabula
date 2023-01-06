@@ -3,14 +3,14 @@ import { getLayout } from "../layouts/BasicLayout"
 
 const Custom404NotFound = () => {
   return (
-    <div className="bg-gray-700 text-gray-100 text-lg font-mono min-h-screen">
+    <div className="bg-zinc-700 text-gray-100 text-lg font-mono min-h-screen">
       <div className="font-bold text-center text-4xl pt-12">
         {" "}
         404 - PAGE NOT FOUND!
       </div>
       <div className="container h-16"></div>
       <div className="container w-96 p-4 mt-4">
-        <span className="block text-gray-400 italic">
+        <span className="block text-stone-400/90 italic">
           // Handle page not found:
         </span>
         <span className="block">
@@ -28,10 +28,10 @@ const Custom404NotFound = () => {
             {");"}
           </span>
           <span className="block">{"}"}</span>
-          <span className="text-gray-400 italic">
+          <span className="text-stone-400/90 italic">
             //{" "}
             <Link
-              className="underline text-gray-400 hover:text-purple-500"
+              className="underline hover:text-purple-500"
               href="/"
             >
               Go home!

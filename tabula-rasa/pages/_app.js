@@ -1,7 +1,13 @@
 import Head from "next/head"
-import "../styles/globals.css"
 
-function MyApp({ Component, pageProps }) {
+import { config } from "@fortawesome/fontawesome-svg-core"
+import "@fortawesome/fontawesome-svg-core/styles.css"
+config.autoAddCss = false
+
+import "../styles/globals.css"
+import "@tremor/react/dist/esm/tremor.css"
+
+export default function MyApp({ Component, pageProps }) {
   // Use the layout defined at the page level, if available:
   const getLayout = Component.getLayout || ((page) => page)
 
@@ -12,8 +18,14 @@ function MyApp({ Component, pageProps }) {
     <div>
       <Head>
         <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        />
+        <meta
+          httpEquiv="X-UA-Compatible"
+          content="ie=edge"
+        />
         <title>{pageTitle}</title>
         <link
           rel="icon"
@@ -28,5 +40,3 @@ function MyApp({ Component, pageProps }) {
     </div>
   )
 }
-
-export default MyApp

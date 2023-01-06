@@ -4,30 +4,33 @@
 import { useState } from "react"
 import Footer from "../components/MyFooter"
 import HeaderNavbar from "../components/MyHeaderNavbar"
+import cls from "classnames"
 
 const MainLayout = ({ children }) => {
   // Navbar active key:
-  const [navbarActiveKey, setNavbarActiveKey] = useState(null)
+  const [stickyHeader, setStickyHeader] = useState(true)
 
   return (
-    <div className="min-h-screen flex flex-col bg-zinc-100/70">
+    <div className="flex flex-col min-h-screen max-w-none">
       <header
         aria-label="Dashboard Home"
-        className="bg-zinc-300 border border-b-2 border-zinc-400/80"
+        className={cls(
+          `${stickyHeader && "sticky top-0 z-50"}`,
+          "bg-zinc-400 min-w-fit max-w-full",
+          "rounded-b-xl shadow-md shadow-zinc-500",
+          "h-14 xl:mx-3 2xl:mx-6"
+        )}
       >
-        <HeaderNavbar
-          activeKey={navbarActiveKey}
-          setActiveKey={setNavbarActiveKey}
-        />
+        <HeaderNavbar />
       </header>
 
       <main className="flex-1">
-        <div className="px-4 pt-1 pb-3">{children}</div>
+        <div className="sm:px-4 sm:pt-1 sm:pb-3">{children}</div>
       </main>
 
       <footer
         aria-label="Site Footer"
-        className="bg-slate-600"
+        className="bg-zinc-600"
       >
         <Footer />
       </footer>

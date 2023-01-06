@@ -1,22 +1,30 @@
+import React from "react"
 import Link from "next/link"
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import cls from "classnames"
 
 const Footer = () => {
   return (
-    <div className="text-white text-xs font-medium antialiased mx-3 mb-0 px-2 sm:min-w-max md:flex md:items-center md:justify-between md:p-2 lg:px-6">
-      <span className="sm:text-center">
-        © { `${new Date().getFullYear()}, ` }
+    <div
+      className={cls(
+        "text-white text-xs font-medium mx-3",
+        "flex items-center justify-between py-3 lg:px-6 2xl:px-8"
+      )}
+    >
+      <div className="">
+        &copy; {`${new Date().getFullYear()}, `}
         <Link
-          className="hover:text-cyan-400"
+          className="hover:text-sky-400"
           href="https://github.com/copev313"
         >
           Hashy Codes
         </Link>
         .
-      </span>
-      <ul className="flex flex-nowrap items-center mt-3 sm:mt-1">
+      </div>
+      <ul className="flex flex-nowrap items-center">
         <li>
           <Link
-            className="mr-4 hover:text-cyan-400 md:mr-6"
+            className="hover:text-sky-400 mr-6"
             href="/team"
           >
             Team
@@ -24,7 +32,7 @@ const Footer = () => {
         </li>
         <li>
           <Link
-            className="mr-4 hover:text-cyan-400 md:mr-6"
+            className="hover:text-sky-400 mr-6"
             href="https://github.com/copev313"
           >
             GitHub
@@ -32,7 +40,7 @@ const Footer = () => {
         </li>
         <li>
           <Link
-            className="hover:text-cyan-400"
+            className="hover:text-sky-400 mr-6"
             href="/contact"
           >
             Contact
