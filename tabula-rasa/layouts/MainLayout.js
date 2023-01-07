@@ -2,17 +2,36 @@
   The Main Layout used for displaying most pages on the site.
 */
 import { useState } from "react"
-import Footer from "../components/MyFooter"
-import HeaderNavbar from "../components/MyHeaderNavbar"
+
+import HeaderNavbar from "../components/HeaderNavbar"
 import cls from "classnames"
+import BasicFooter from "../components/BasicFooter"
+/* ========================================================================= */
 
 const MainLayout = ({ children }) => {
-  // Navbar active key:
   const [stickyHeader, setStickyHeader] = useState(true)
 
   return (
     <div className="flex flex-col min-h-screen max-w-none">
       <header
+        aria-label="Site Navbar"
+        className={cls(
+          "flex w-full p-3 items-center font-sans ",
+          `${stickyHeader && "sticky top-0 z-50"}`
+        )}
+      >
+        <HeaderNavbar
+          title="Snowplow"
+          examplesDropdownItems={[
+            { title: "Basic", href: "/tables" },
+            { title: "Searchable", href: "/tables/searchable" },
+            // { title: "Pagination", href: "/tables/pagination" },
+            { title: "Extras...", href: "/tables/kitchen-sink-demo" },
+          ]}
+          stickyHeader={stickyHeader}
+        />
+      </header>
+      {/* <header
         aria-label="Dashboard Home"
         className={cls(
           `${stickyHeader && "sticky top-0 z-50"}`,
@@ -22,7 +41,7 @@ const MainLayout = ({ children }) => {
         )}
       >
         <HeaderNavbar />
-      </header>
+      </header> */}
 
       <main className="flex-1">
         <div className="sm:px-4 sm:pt-1 sm:pb-3">{children}</div>
@@ -30,9 +49,9 @@ const MainLayout = ({ children }) => {
 
       <footer
         aria-label="Site Footer"
-        className="bg-zinc-600"
+        className=""
       >
-        <Footer />
+        <BasicFooter />
       </footer>
     </div>
   )

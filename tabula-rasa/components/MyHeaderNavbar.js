@@ -1,14 +1,15 @@
 import Link from "next/link"
-import Image from "next/image"
 import styles from "../styles/HeaderNavbar.module.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faChessRook } from "@fortawesome/free-solid-svg-icons"
-import DropdownMenu from "./MyDropdownMenu"
 import {
-  ChevronDoubleRightIcon,
-  Cog8ToothIcon,
-} from "@heroicons/react/24/solid"
+  faAnglesRight,
+  faGear,
+  faSnowplow,
+  faUserAstronaut,
+} from "@fortawesome/free-solid-svg-icons"
+// import DropdownMenu from "./MyDropdownMenu"
 import cls from "classnames"
+/* ========================================================================= */
 
 const HeaderNavbar = () => {
   const directLinks = [
@@ -27,7 +28,7 @@ const HeaderNavbar = () => {
         <span className="sr-only">Home</span>
         <div className="">
           <FontAwesomeIcon
-            icon={faChessRook}
+            icon={faSnowplow}
             className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8"
           />
         </div>
@@ -40,7 +41,7 @@ const HeaderNavbar = () => {
               `${styles.navbarTitle}`
             )}
           >
-            Tabula Rasa
+            Snowplow
           </span>
         </div>
       </Link>
@@ -74,7 +75,7 @@ const HeaderNavbar = () => {
               </li>
             ))}
 
-            <li className="hover:text-sky-500">
+            {/* <li className="hover:text-sky-500">
               <DropdownMenu
                 title="Examples"
                 links={[
@@ -84,7 +85,7 @@ const HeaderNavbar = () => {
                   { label: "Coming Soon!", href: "/", disabled: true },
                 ]}
               />
-            </li>
+            </li> */}
           </ul>
         </nav>
 
@@ -101,13 +102,19 @@ const HeaderNavbar = () => {
               href="/settings"
               alt="Settings"
             >
-              <Cog8ToothIcon className="h-5 w-5" />
+              <FontAwesomeIcon
+                icon={faGear}
+                className="h-5 w-5"
+              />
             </Link>
           </div>
         </div>
 
         <div className="flex sm:hidden">
-          <ChevronDoubleRightIcon className="h-5 w-5" />
+          <FontAwesomeIcon
+            icon={faAnglesRight}
+            className="h-5 w-5"
+          />
         </div>
       </div>
     </div>

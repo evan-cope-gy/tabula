@@ -1,6 +1,5 @@
 // import { useState } from "react"
 import useTitlesAPI from "../../hooks/streamingTitles"
-import { Divider } from "@tremor/react"
 import BasicDataTable from "../../components/MyBasicTable"
 import { getLayout } from "../../layouts/MainLayout"
 import Spinner from "../../components/MySpinner"

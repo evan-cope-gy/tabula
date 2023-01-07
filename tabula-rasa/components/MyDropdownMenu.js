@@ -1,7 +1,8 @@
 import Link from "next/link"
-import { Menu, Popover } from "@headlessui/react"
-import { ChevronDownIcon } from "@heroicons/react/24/solid"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons"
 import cls from "classnames"
+/* ========================================================================= */
 
 const DropdownMenu = ({ title, links }) => {
   return (
@@ -11,11 +12,9 @@ const DropdownMenu = ({ title, links }) => {
           <div className={cls("flex flex-nowrap")}>
             <span className="pr-2">{title}</span>
             <span className="">
-              <ChevronDownIcon
-                className={cls(
-                  "mt-0.5 h-4 w-4",
-                  "ui-open:rotate-180 ui-open:transform"
-                )}
+              <FontAwesomeIcon
+                icon={faCaretDown}
+                className="mt-0.5 h-4 w-4"
               />
             </span>
           </div>
