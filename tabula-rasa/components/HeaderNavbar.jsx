@@ -1,14 +1,11 @@
 import React from "react"
 import Link from "next/link"
-import { Button, Divider, Dropdown, Menu, Navbar, Tooltip } from "react-daisyui"
+import { Button, Dropdown, Menu, Navbar, Tooltip } from "react-daisyui"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faAngleRight,
-  // faAnglesRight,
   faAngleDown,
   faBars,
-  faLinesLeaning,
-  faMinus,
   faGear,
   faSnowplow,
   // faUserAstronaut,
@@ -17,88 +14,97 @@ import cls from "classnames"
 import styles from "../styles/HeaderNavbar.module.css"
 /* ========================================================================= */
 
-const HeaderNavbar = ({ title, ...props }) => {
-  const { stickyHeader, examplesDropdownItems } = props
+const HeaderNavbar = ({ stickyHeader, title, ...props }) => {
+  const { examplesDropdownItems } = props
 
   return (
     <Navbar
       className={cls(
-        "bg-neutral rounded-xl shadow-lg",
+        "md:m-3 md:rounded-lg",
+        "bg-neutral shadow-lg",
         `${stickyHeader && "sticky top-0 z-50"}`
       )}
     >
-      <Navbar.Start>
-        <Dropdown>
+      {/* Start of Dropdown Menu for Responsive Header */}
+      <Dropdown>
+        <div>
           <Button
-            color="ghost text-base-100 hover:text-info"
+            color="ghost"
             tabIndex={0}
-            className="md:hidden"
+            className="p-3 mr-1 text-info md:hidden "
           >
             <FontAwesomeIcon
               icon={faBars}
               className="h-5 w-5"
             />
           </Button>
+        </div>
 
-          <Dropdown.Menu
-            tabIndex={0}
-            className="w-52 menu-compact mt-3"
-          >
-            <Dropdown.Item>
-              <Link href="/">Item 1</Link>
-            </Dropdown.Item>
-            <Dropdown.Item>
-              <Link href="/">Item 2</Link>
-            </Dropdown.Item>
-            {examplesDropdownItems && (
-              <li tabIndex={0}>
-                <a className="justify-between">
-                  <span>Examples</span>
-                  <FontAwesomeIcon
-                    icon={faAngleRight}
-                    className="h-3 w-3"
-                  />
-                </a>
-                <ul className="p-1 bg-base-100 shadow">
-                  {examplesDropdownItems.map((item, itemIndex) => (
-                    <li key={itemIndex}>
-                      <Link href={item.href}>{item.title}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </li>
-            )}
-          </Dropdown.Menu>
-        </Dropdown>
-
-        <Link
-          aria-label="Dashboard Home"
-          href="/"
-          className={cls(
-            "",
-            "text-xl px-4 uppercase text-base-100 hover:text-primary",
-            styles.navbarTitle
-          )}
+        <Dropdown.Menu
+          tabIndex={0}
+          className="w-52 menu-compact mt-3"
         >
-          <div className="flex flex-row gap-3">
-            <FontAwesomeIcon
-              icon={faSnowplow}
-              className="h-8 w-8"
-            />
-            <span className="pt-1">{title}</span>
-          </div>
-        </Link>
-        {/* <FontAwesomeIcon
-          icon={faMinus}
-          className="h-12 w-6 rotate-90 text-base-100 px-2"
-        /> */}
-      </Navbar.Start>
+          <Dropdown.Item>
+            <Link href="/">Item 1</Link>
+          </Dropdown.Item>
+          <Dropdown.Item>
+            <Link href="/">Item 2</Link>
+          </Dropdown.Item>
+          {examplesDropdownItems && (
+            <li tabIndex={0}>
+              <a className="justify-between">
+                <span>Examples</span>
+                <FontAwesomeIcon
+                  icon={faAngleRight}
+                  className="h-3 w-3"
+                />
+              </a>
+              <ul className="p-1 bg-base-100 shadow">
+                {examplesDropdownItems.map((item, itemIndex) => (
+                  <li key={itemIndex}>
+                    <Link href={item.href}>{item.title}</Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          )}
+        </Dropdown.Menu>
+      </Dropdown>
+      {/* End of Dropdown Menu for Responsive Header */}
 
-      <div className="hidden md:flex flex-grow border border-info"></div>
-      <Navbar.Center className="hidden md:flex">
+      {/* Start of Left Side Title Section of Navbar */}
+      <Link
+        aria-label="Dashboard Home"
+        href="/"
+        className={cls(
+          "uppercase text-lg md:text-xl",
+          "px-3 md:px-4 text-base-100 hover:text-primary",
+          "md:mr-4 lg:mr-6",
+          styles.navbarTitle
+        )}
+      >
+        <div className="flex flex-row gap-3">
+          <FontAwesomeIcon
+            icon={faSnowplow}
+            className="h-8 w-8"
+          />
+          <span className="pt-1">{title}</span>
+        </div>
+      </Link>
+      {/* End of Left Side Title Section of Navbar */}
+
+      {/* Start of the Middle Section of Navbar */}
+      <div
+        className={cls(
+          "hidden md:flex md:flex-grow",
+          "text-sm font-medium xl:text-base xl:font-normal"
+        )}
+      >
+        {/* Left Side Horizontal Line Divider */}
+        <div className="hidden md:flex md:w-28 lg:w-40 xl:w-48 border border-info"></div>
         <Menu
           horizontal
-          className="p-0 text-info "
+          className={cls("text-info xl:space-x-1 lg:mx-2 xl:mx-4")}
         >
           <Tooltip
             color="info"
@@ -108,7 +114,7 @@ const HeaderNavbar = ({ title, ...props }) => {
             <Menu.Item>
               <Link
                 href="/"
-                className="rounded-md"
+                className="rounded-md hover:text-base-100"
               >
                 Item 1
               </Link>
@@ -138,7 +144,12 @@ const HeaderNavbar = ({ title, ...props }) => {
                   className="h-3 w-3"
                 />
               </a>
-              <Menu className="p-1 menu-compact xl:menu-normal rounded-md bg-base-100 text-neutral shadow-md">
+              <Menu
+                className={cls(
+                  "p-1 menu-compact xl:menu-normal",
+                  "rounded-md bg-base-100 text-neutral shadow-md"
+                )}
+              >
                 {examplesDropdownItems.map((item, itemIndex) => (
                   <Menu.Item key={itemIndex}>
                     <Link href={item.href}>{item.title}</Link>
@@ -148,19 +159,32 @@ const HeaderNavbar = ({ title, ...props }) => {
             </Menu.Item>
           )}
         </Menu>
-      </Navbar.Center>
+        {/* Right Side Horizontal Line Divider */}
+        <div className="hidden md:flex flex-grow lg:border border-info"></div>
+      </div>
+      {/* End of the Middle Section of Navbar */}
 
-      <Navbar.End>
+      {/* Start of Right Side Button Links Section */}
+      <div class="ml-auto md:ml-4 lg:ml-6">
         <Link
           href="/settings"
-          className="text-base-100 hover:text-info"
+          className={cls(
+            "flex flex-row items-center flex-none",
+            "text-base-100 rounded-md hover:text-accent"
+          )}
         >
-          <FontAwesomeIcon
-            icon={faGear}
-            className="h-5 w-5 px-5"
-          />
+          <Button
+            size="md"
+            className="hover:text-accent p-3"
+          >
+            <FontAwesomeIcon
+              icon={faGear}
+              className="h-5 w-5"
+            />
+          </Button>
         </Link>
-      </Navbar.End>
+      </div>
+      {/* End of Right Side Button Links Section */}
     </Navbar>
   )
 }

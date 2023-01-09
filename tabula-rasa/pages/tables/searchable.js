@@ -4,6 +4,7 @@ import BasicDataTable from "../../components/MyBasicTable"
 import { getLayout } from "../../layouts/MainLayout"
 import Spinner from "../../components/MySpinner"
 import ErrorAlertCard from "../../components/MyErrorAlertCard"
+import PageTitleSection from "../../components/PageTitleSection"
 
 const SearchTablePage = () => {
   // Streaming-Titles API request:
@@ -105,10 +106,7 @@ const SearchTablePage = () => {
 
   return (
     <div className="text-black max-w-full">
-      <h1 className="text-xl sm:text-2xl font-medium m-2 pt-4 px-1">
-        Searchable Data Table
-      </h1>
-      <hr className="flex flex-1 mt-4 mb-6 mx-2" />
+      <PageTitleSection title="Searchable Data Table" />
       {/* Handle Error State */}
       <ErrorAlertCard error={isError} />
 

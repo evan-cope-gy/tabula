@@ -9,8 +9,7 @@ const nextConfig = {
       beforeFiles: [
         {
           source: "/api/:path*",
-          destination:
-            "https://streaming-titles-api.up.railway.app/api/v1/:path*",
+          destination: `${process.env.API_ROOT_URL}/api/v1/:path*`,
         },
       ],
     }

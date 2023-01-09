@@ -1,10 +1,12 @@
 /* 
   The is the main settings page for the site.
 */
-import { useEffect, useState } from "react"
+// import { useEffect, useState } from "react"
 import { getLayout } from "../../layouts/MainLayout"
+
 import { Table, Toggle } from "react-daisyui"
-import cls from "classnames"
+import PageTitleSection from "../../components/PageTitleSection"
+// import cls from "classnames"
 /* ========================================================================= */
 
 const SettingsPage = ({ siteTheme, setSiteTheme, ...props }) => {
@@ -26,7 +28,7 @@ const SettingsPage = ({ siteTheme, setSiteTheme, ...props }) => {
 
   return (
     <div className="p-2 overflow-x-auto">
-      <h1 className="font-medium text-3xl my-2 mx-2">Settings</h1>
+      <PageTitleSection title="Settings" />
 
       <div className="container flex flex-col items-center justify-center">
         <Toggle

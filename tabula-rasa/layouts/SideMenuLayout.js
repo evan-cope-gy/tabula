@@ -1,17 +1,14 @@
-/*
-  The layout used a majority of the pages on the site.
+/* 
+  The is the landing page for the admin portion of the site.
 */
-import { useState } from "react"
-import Footer from "../components/MyFooter"
-import HeaderNavbar from "../components/MyNavbar"
+// import { useState } from "react"
+// import cls from "classnames"
+/* ========================================================================= */
 
-const MainLayout = ({ children }) => {
-  // Navbar active key:
-  // const [navbarActiveKey, setNavbarActiveKey] = useState(null)
-
-  return <div className="min-h-screen flex flex-col"></div>
+const SideMenuLayout = () => {
+  return <div className="p-2"></div>
 }
 
-export const getLayout = (page) => <MainLayout>{page}</MainLayout>
+export const getLayout = (page) => <SideMenuLayout>{page}</SideMenuLayout>
 
-export default MainLayout
+export default SideMenuLayout

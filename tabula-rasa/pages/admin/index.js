@@ -3,6 +3,7 @@
 */
 import { useState } from "react"
 import { getLayout } from "../../layouts/MainLayout"
+import PageTitleSection from "../../components/PageTitleSection"
 import cls from "classnames"
 /* ========================================================================= */
 
@@ -12,14 +13,14 @@ const AdminHomePage = () => {
 
   return (
     <div className="p-2">
-      <h1 className="font-medium text-3xl my-2 mx-2">Settings</h1>
+      <PageTitleSection title="Admin > Home" />
 
-      <div className="container flex items-center justify-center"></div>
+      {/* <div className="container"></div> */}
     </div>
   )
 }
 
-AdminHomePage.pageTitle = "Tabula Rasa: Admin Home"
+AdminHomePage.pageTitle = "Admin > Home"
 AdminHomePage.getLayout = getLayout
 
 export default AdminHomePage

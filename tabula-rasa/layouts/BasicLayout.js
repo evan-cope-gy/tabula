@@ -1,6 +1,7 @@
 /*
   General container layout for basic pages.
 */
+/* ========================================================================= */
 
 const BasicLayout = ({ children }) => {
   return (

@@ -2,8 +2,9 @@
 import useTitlesAPI from "../../hooks/streamingTitles"
 import BasicDataTable from "../../components/MyBasicTable"
 import { getLayout } from "../../layouts/MainLayout"
-import Spinner from "../../components/MySpinner"
+import Spinner from "../../components/Spinner"
 import ErrorAlertCard from "../../components/MyErrorAlertCard"
+import PageTitleSection from "../../components/PageTitleSection"
 
 const AdvancedTablePage = () => {
   // Streaming-Titles API request:
@@ -105,15 +106,12 @@ const AdvancedTablePage = () => {
 
   return (
     <div className="text-black max-w-full">
-      <h1 className="text-xl sm:text-2xl font-medium m-2 pt-4 px-1">
-        Basic Data Table
-      </h1>
-      <hr className="flex flex-1 mt-4 mb-6 mx-2" />
+      <PageTitleSection title="Advanced Data Table" />
       {/* Handle Error State */}
-      <ErrorAlertCard error={isError} />
+      {isError && <ErrorAlertCard />}
 
       {/* Handle Loading State */}
-      <Spinner loading={isLoading} />
+      {isLoading && !isError && <Spinner />}
 
       {/* Handle Loaded Table State */}
       {data && !isLoading && !isError && (
