@@ -2,8 +2,9 @@
 import useTitlesAPI from "../../hooks/streamingTitles"
 import BasicDataTable from "../../components/MyBasicTable"
 import { getLayout } from "../../layouts/MainLayout"
-import Spinner from "../../components/MySpinner"
+import Spinner from "../../components/Spinner"
 import ErrorAlertCard from "../../components/MyErrorAlertCard"
+import PageTitleSection from "../../components/PageTitleSection"
 
 const BasicTablePage = () => {
   // Streaming-Titles API request:
@@ -14,64 +15,117 @@ const BasicTablePage = () => {
   const columns = [
     {
       name: "Show ID",
-      selector: row => row.show_id,
+      selector: (row) => row.show_id,
+      minWidth: "5rem",
     },
     {
       name: "Title",
-      selector: row => row.title,
+      selector: (row) => row.title,
       grow: 3,
+      minWidth: "12rem",
     },
     {
       name: "Type",
-      selector: row => row.type,
+      selector: (row) => row.type,
+      minWidth: "5.25rem",
     },
     {
       name: "Description",
-      selector: row => row.description,
+      selector: (row) => row.description,
       wrap: true,
       grow: 6,
     },
     {
       name: "Country",
-      selector: row => row.country,
+      selector: (row) => row.country,
+      minWidth: "6rem",
     },
     {
       name: "Release Year",
-      selector: row => row.release_year,
+      selector: (row) => row.release_year,
+      minWidth: "6rem",
     },
     {
       name: "Rating",
-      selector: row => row.rating,
+      selector: (row) => row.rating,
+      minWidth: "5rem",
     },
     {
       name: "Duration",
-      selector: row => row.duration,
+      selector: (row) => row.duration,
+      minWidth: "6rem",
     },
     {
       name: "Platform",
-      selector: row => row.platform,
+      selector: (row) => row.platform,
+      minWidth: "7.5rem",
     },
   ]
 
+  const customCompactStyle = {
+    header: {
+      style: {
+        minHeight: "56px",
+      },
+    },
+    headRow: {
+      style: {
+        // borderStyle: "solid",
+        // borderWidth: "1px",
+        // borderColor: "#a1a1aa",
+        backgroundColor: "#e4e4e7",
+        minHeight: "32px",
+      },
+    },
+    headCells: {
+      style: {
+        borderStyle: "solid solid none solid",
+        borderWidth: "1px",
+        borderColor: "#a1a1aa",
+        // "&:not(:last-of-type)": {
+        //   borderRightStyle: "solid",
+        //   borderRightWidth: "1px",
+        //   borderRightColor: "#a1a1aa",
+        // },
+      },
+    },
+    cells: {
+      style: {
+        borderStyle: "solid solid none solid",
+        // borderBottomStyle: "none",
+        borderWidth: "1px",
+        borderColor: "#a1a1aa",
+        // "&:not(:last-of-type)": {
+        //   borderRightStyle: "solid",
+        //   borderRightWidth: "1px",
+        //   borderRightColor: "#a1a1aa",
+        // },
+      },
+    },
+  }
+
   return (
-    <div className="text-black">
-      <h1 className="text-2xl font-medium my-2 pt-2 pb-3 mx-2">
-        Basic Data Table
-      </h1>
+    <div className="text-black max-w-full">
+      <PageTitleSection title="Basic Data Table" />
 
       {/* Handle Error State */}
-      <ErrorAlertCard error={isError} />
+      {isError && <ErrorAlertCard />}
 
       {/* Handle Loading State */}
-      <Spinner loading={isLoading} />
+      {isLoading && !isError && <Spinner />}
 
       {/* Handle Loaded Table State */}
-      {(data && !isLoading && !isError) && (
-        <div className="mx-3">
+      {data && !isLoading && !isError && (
+        <div className="mx-3 my-3">
           <BasicDataTable
             columns={columns}
             data={data?.titles}
-            className=""
+            // title="ABC"
+            // theme="dark"
+            customStyles={customCompactStyle}
+            // dense={true}
+            responsive={false}
+            // className="border border-solid border-zinc-400"
           />
         </div>
       )}

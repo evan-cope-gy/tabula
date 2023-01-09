@@ -1,21 +1,20 @@
 /* 
-  The landing for the team page.
+  The landing for the docs page.
 */
-// import { useState } from "react"
 import { getLayout } from "../../layouts/MainLayout"
 import PageTitleSection from "../../components/PageTitleSection"
 // import cls from "classnames"
 /* ========================================================================= */
 
-const TeamHomePage = () => {
+const DocsHomePage = () => {
   return (
     <div className="p-2">
-      <PageTitleSection title="Team > Home" />
+      <PageTitleSection title="Docs > Home" />
     </div>
   )
 }
 
-TeamHomePage.pageTitle = "Team - Home"
-TeamHomePage.getLayout = getLayout
+DocsHomePage.pageTitle = "Docs - Home"
+DocsHomePage.getLayout = getLayout
 
-export default TeamHomePage
+export default DocsHomePage
