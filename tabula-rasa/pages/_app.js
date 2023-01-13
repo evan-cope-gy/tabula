@@ -1,7 +1,7 @@
 /*
   This is the central / root component for the Next.js app.
 */
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Head from "next/head"
 
 import { config } from "@fortawesome/fontawesome-svg-core"
@@ -10,20 +10,28 @@ config.autoAddCss = false
 
 import { Theme } from "react-daisyui"
 import "../styles/globals.css"
+
+import {
+  useAppSettingsStore,
+  usePreferenceSettingsStore,
+} from "../stores/appSettingsStore"
+
 /* ========================================================================= */
 
 export default function MyApp({ Component, pageProps }) {
-  // State for changing DaisyUI themes:
-  const [siteTheme, setSiteTheme] = useState("myCustomLightTheme")
+  // Get App Title:
+  const appTitle = useAppSettingsStore((state) => state.appTitle)
+  // Retrieve the site theme:
+  const siteTheme = usePreferenceSettingsStore((state) => state.theme)
 
   // Function to define layouts on a per page basis:
   const getLayout = Component.getLayout || ((page) => page)
 
   // For setting page titles on a per page basis:
-  const pageTitle = `Snowplow: ${Component.pageTitle}` || appTitle
+  const pageTitle = `${appTitle}: ${Component.pageTitle}` || appTitle
 
   return (
-    <Theme dataTheme={siteTheme}>
+    <>
       <Head>
         <meta charSet="UTF-8" />
         <meta
@@ -38,20 +46,23 @@ export default function MyApp({ Component, pageProps }) {
           name="description"
           content="Enterprise job monitoring and management tool."
         />
+        <meta
+          property="og:locale"
+          content="en_US"
+        />
+        <meta
+          property="og:type"
+          content="website"
+        />
         <link
           rel="icon"
           href="/favicon.ico"
         />
         <title>{pageTitle}</title>
       </Head>
-
-      {getLayout(
-        <Component
-          siteTheme={siteTheme}
-          setSiteTheme={setSiteTheme}
-          {...pageProps}
-        />
-      )}
-    </Theme>
+      <Theme dataTheme={siteTheme}>
+        {getLayout(<Component {...pageProps} />)}
+      </Theme>
+    </>
   )
 }

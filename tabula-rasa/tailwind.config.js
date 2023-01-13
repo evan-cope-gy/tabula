@@ -39,7 +39,7 @@ module.exports = {
     darkTheme: "dark",
     themes: [
       {
-        myCustomLightTheme: {
+        customLightTheme: {
           "primary": "#38bdf8",
           "secondary": "#a855f7",
           "accent": "#1d4ed8",

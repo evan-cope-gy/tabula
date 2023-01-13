@@ -7,7 +7,8 @@ import {
   faAngleDown,
   faBars,
   faGear,
-  faSnowplow,
+  // faSnowplow,
+  faPersonSnowboarding,
   // faUserAstronaut,
 } from "@fortawesome/free-solid-svg-icons"
 import cls from "classnames"
@@ -78,14 +79,14 @@ const HeaderNavbar = ({ stickyHeader, title, ...props }) => {
         href="/"
         className={cls(
           "uppercase text-lg md:text-xl",
-          "px-3 md:px-4 text-base-100 hover:text-primary",
+          "px-2 md:px-3 text-base-100 hover:text-primary",
           "md:mr-4 lg:mr-6",
           styles.navbarTitle
         )}
       >
-        <div className="flex flex-row gap-3">
+        <div className="flex flex-row gap-2">
           <FontAwesomeIcon
-            icon={faSnowplow}
+            icon={faPersonSnowboarding}
             className="h-8 w-8"
           />
           <span className="pt-1">{title}</span>

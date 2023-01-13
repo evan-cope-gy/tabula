@@ -6,25 +6,21 @@ import { getLayout } from "../../layouts/MainLayout"
 
 import { Table, Toggle } from "react-daisyui"
 import PageTitleSection from "../../components/PageTitleSection"
+import { usePreferenceSettingsStore } from "../../stores/appSettingsStore"
 // import cls from "classnames"
 /* ========================================================================= */
 
-const SettingsPage = ({ siteTheme, setSiteTheme, ...props }) => {
-  const toggleSiteTheme = () => {
-    if (siteTheme === "dark") {
-      setSiteTheme("myCustomLightTheme")
-    } else {
-      setSiteTheme("dark")
-    }
-  }
+const SettingsPage = ({ ...props }) => {
+  // Retrieve the current site theme:
+  const siteTheme = usePreferenceSettingsStore((state) => state.theme)
+  // Retrieve the toggleSiteTheme action:
+  const toggleSiteTheme = usePreferenceSettingsStore(
+    (state) => state.toggleTheme
+  )
 
-  // const switchSiteTheme = (newTheme) => {
-  //   setSiteTheme(newTheme)
-  // }
-
-  // useEffect(() => {
+  // const toggleTheme = () => {
   //   toggleSiteTheme()
-  // }, [isChecked])
+  // }
 
   return (
     <div className="p-2 overflow-x-auto">
@@ -73,7 +69,7 @@ const SettingsPage = ({ siteTheme, setSiteTheme, ...props }) => {
   )
 }
 
-SettingsPage.pageTitle = "Tabula Rasa: Settings Page"
+SettingsPage.pageTitle = "Settings Page"
 SettingsPage.getLayout = getLayout
 
 export default SettingsPage

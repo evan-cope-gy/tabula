@@ -1,14 +1,27 @@
 /*
   The Main Layout used for displaying most pages on the site.
 */
-import { useState } from "react"
-import HeaderNavbar from "../components/HeaderNavbar"
+import { useState, useEffect } from "react"
+
 import cls from "classnames"
 import BasicFooter from "../components/BasicFooter"
+import MainSidebar from "../components/MainSidebar"
+import HeaderNavbar from "../components/HeaderNavbar"
+
+import {
+  useAppSettingsStore,
+  usePreferenceSettingsStore,
+} from "../stores/appSettingsStore"
+
 /* ========================================================================= */
 
 const MainLayout = ({ children, ...props }) => {
-  const [stickyHeader, setStickyHeader] = useState(true)
+  // Retrieve tha App Title for the Navbar Header:
+  const appTitle = useAppSettingsStore((state) => state.appTitle)
+  // Retrieve the sticky header setting:
+  const stickyHeader = usePreferenceSettingsStore(
+    (state) => state.getStickHeader
+  )
 
   return (
     <div className="flex flex-col min-h-screen max-w-none">
@@ -22,7 +35,7 @@ const MainLayout = ({ children, ...props }) => {
       >
         <>
           <HeaderNavbar
-            title="Snowplow"
+            title={appTitle}
             examplesDropdownItems={[
               { title: "Basic", href: "/tables" },
               { title: "Searchable", href: "/tables/searchable" },
@@ -33,10 +46,20 @@ const MainLayout = ({ children, ...props }) => {
           />
         </>
       </header>
-      {/* <header className="min-w-fit max-w-full"></header> */}
 
       <main className="flex-1 ">
-        <div className="mx-3 md:mx-4 lg:mx-6 xl:mx-8 2xl:mx-10">{children}</div>
+        {/* Section for Sidebar (when applicable) */}
+        <MainSidebar />
+
+        {/* Section for Main Content */}
+        <div
+          className={cls(
+            // `${sidebarOpen && "flex-1 min-w-0 overflow-auto"}`,
+            "mx-3 md:mx-4 lg:mx-6 xl:mx-8 2xl:mx-10"
+          )}
+        >
+          {children}
+        </div>
       </main>
 
       <footer aria-label="Site Footer">
